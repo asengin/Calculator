@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calcuator"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="450" Width="800">
-    <Grid>
-        
+        Title="Калькулятор" Height="450" Width="300" ResizeMode="NoResize">
+    <Grid Background="#ff404040">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.15*"/>
+            <RowDefinition Height="*">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <UniformGrid Grid.Row="3" Rows="4" Columns="5" Margin="5,0,5,5">
+            <Button Content="7" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="8" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="9" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="-" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="&#247;" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="4" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="5" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="6" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="+" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="x" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="1" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="2" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="3" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="X&#178;" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="&#8730;" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="0" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="." Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="/-/" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold"/>
+            <Button Content="=" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="Azure"/>
+            <Button Content="C" Margin="2" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="OrangeRed" Foreground="White"/>
+        </UniformGrid>
+        <TextBlock Grid.Row="0" Text="2+5-10=" Background="#FF224821" Foreground="#ff77ff77" FontFamily="Verdana" FontSize="20" Margin="7,0"/>
+        <TextBlock Grid.Row="1" Text="-3" Background="#FF224821" Foreground="#ff77ff77" FontFamily="Verdana" FontSize="40" Margin="7,0"/>
+
     </Grid>
+
 </Window>

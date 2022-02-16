@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Calcuator"
         mc:Ignorable="d"
         Title="Калькулятор" Height="450" Width="400" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Background="Transparent" >
-    <Grid Background="#ff404040">
+    <Grid Background="#ff404040" Opacity="0.85">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.15*"/>

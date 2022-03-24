@@ -4,8 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calcuator"
+        xmlns:vm="clr-namespace:Calcuator.ViewModels"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="450" Width="400" ResizeMode="NoResize" AllowsTransparency="True" WindowStyle="None" Background="Transparent" >
+        Title="Калькулятор" 
+        Height="450" 
+        Width="400" 
+        ResizeMode="NoResize" 
+        AllowsTransparency="True" 
+        WindowStyle="None" 
+        Background="Transparent" >
+    <Window.DataContext>
+        <vm:MainWindowsViewModel/>
+    </Window.DataContext>
+    
     <Grid Background="#ff404040" Opacity="0.85">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -35,8 +46,26 @@
             <Button Content="=" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="Azure" BorderThickness="2" BorderBrush="Black"/>
             <Button Content="C" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="OrangeRed" Foreground="White" BorderThickness="2" BorderBrush="DarkRed"/>
         </UniformGrid>
-        <TextBox Grid.Row="0" Text="2+5-10=" Background="#FF224821" Foreground="#ff77ff77" FontFamily="verdana" FontSize="20" Margin="7,7,7,0" BorderBrush="DarkGreen" BorderThickness="3,3,2,0"/>
-        <TextBox Grid.Row="1" Text="-3" Background="#FF224821" Foreground="#ff77ff77" FontFamily="Verdana" FontSize="40" Margin="7,0,7,3" BorderBrush="DarkGreen" BorderThickness="3,0,2,2"/>
+        <TextBox Grid.Row="0" 
+                 Text="2+5-10=" 
+                 Background="#FF224821" 
+                 Foreground="#ff77ff77" 
+                 FontFamily="verdana" 
+                 FontSize="20" 
+                 Margin="7,7,7,0" 
+                 BorderBrush="DarkGreen" 
+                 BorderThickness="3,3,2,0"
+                 />
+        <TextBox Grid.Row="1" 
+                 Text="-3" 
+                 Background="#FF224821" 
+                 Foreground="#ff77ff77" 
+                 FontFamily="Verdana" 
+                 FontSize="40" 
+                 Margin="7,0,7,3" 
+                 BorderBrush="DarkGreen" 
+                 BorderThickness="3,0,2,2"
+                 IsReadOnly="True"/>
 
     </Grid>
 

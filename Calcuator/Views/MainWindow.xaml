@@ -16,44 +16,63 @@
     <Window.DataContext>
         <vm:MainWindowsViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="ButtonParentStyle">
+            <Setter Property="Button.Margin" Value="4"/>
+            <Setter Property="Button.FontFamily" Value="Verdana"/>
+            <Setter Property="Button.FontSize" Value="20"/>
+            <Setter Property="Button.FontWeight" Value="Bold"/>
+            <Setter Property="Button.BorderThickness" Value="2"/>
+            <Setter Property="Button.BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="ButtonResetStyle" BasedOn="{StaticResource ButtonParentStyle}">
+            <Setter Property="Button.Background" Value="OrangeRed"/>
+            <Setter Property="Button.Foreground" Value="White"/>
+            <Setter Property="Button.BorderBrush" Value="DarkRed"/>
+        </Style>
+        <Style x:Key="ButtonResultStyle" BasedOn="{StaticResource ButtonParentStyle}">
+            <Setter Property="Button.Background" Value="Azure"/>
+        </Style>
+    </Window.Resources>
 
     <Grid Background="#ff404040" Opacity="0.85">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.12*"/>
             <RowDefinition Height="0.15*"/>
             <RowDefinition Height="*">
             </RowDefinition>
         </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="3" Rows="4" Columns="5" Margin="5,0,5,5">
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="7" Content="7" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="8" Content="8" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="9" Content="9" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="-" Content="-" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="/" Content="&#247;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="4" Content="4" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="5" Content="5" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="6" Content="6" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="+" Content="+" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="*" Content="x" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="1" Content="1" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="2" Content="2" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="3" Content="3" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="^2" Content="X&#178;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="sqrt" Content="&#8730;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="0" Content="0" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="." Content="." Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="negative" Content="/-/" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="=" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="Azure" BorderThickness="2" BorderBrush="Black"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="CE" Content="C" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="OrangeRed" Foreground="White" BorderThickness="2" BorderBrush="DarkRed"/>
+        <UniformGrid Grid.Row="3" Rows="4" Columns="6" Margin="5,0,5,5">
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="7" Content="7" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="8" Content="8" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="9" Content="9" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="-" Content="-" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="/" Content="&#247;" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="4" Content="4" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="5" Content="5" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="6" Content="6" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="+" Content="+" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="*" Content="x" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="1" Content="1" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="2" Content="2" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="3" Content="3" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="^2" Content="X&#178;" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="sqrt(" Content="&#8730;" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="0" Content="0" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="." Content="." Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="negative" Content="/-/" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Content="=" Style="{StaticResource ButtonResultStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="CE" Content="C" Style="{StaticResource ButtonResetStyle}"/>
         </UniformGrid>
-        
+
         <TextBox Grid.Row="0"                  
                  Background="#FF224821" 
                  Foreground="#ff77ff77" 
                  FontFamily="/Calcuator;component/Views/Resources/#Digital-7 Mono" 
-                 FontSize="30" 
+                 FontSize="40" 
                  Margin="7,7,7,0" 
-                 HorizontalScrollBarVisibility="Hidden" 
+                 HorizontalScrollBarVisibility="Hidden"
+                 
                  BorderThickness="0"
                  Text="{Binding Path=DisplayExpression}" 
                  />

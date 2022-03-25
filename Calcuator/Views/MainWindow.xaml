@@ -16,7 +16,7 @@
     <Window.DataContext>
         <vm:MainWindowsViewModel/>
     </Window.DataContext>
-    
+
     <Grid Background="#ff404040" Opacity="0.85">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.1*"/>
@@ -25,47 +25,49 @@
             </RowDefinition>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="3" Rows="4" Columns="5" Margin="5,0,5,5">
-            <Button Content="7" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="8" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="9" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="-" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="&#247;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="4" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="5" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="6" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="+" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="x" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="1" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="2" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="3" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="X&#178;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="&#8730;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="0" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="." Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="/-/" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="7" Content="7" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="8" Content="8" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="9" Content="9" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="-" Content="-" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="/" Content="&#247;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="4" Content="4" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="5" Content="5" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="6" Content="6" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="+" Content="+" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="*" Content="x" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="1" Content="1" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="2" Content="2" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="3" Content="3" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="^2" Content="X&#178;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="sqrt" Content="&#8730;" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="0" Content="0" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="." Content="." Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="negative" Content="/-/" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" BorderThickness="2" BorderBrush="Black"/>
             <Button Content="=" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="Azure" BorderThickness="2" BorderBrush="Black"/>
-            <Button Content="C" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="OrangeRed" Foreground="White" BorderThickness="2" BorderBrush="DarkRed"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="CE" Content="C" Margin="4" FontFamily="Verdana" FontSize="20" FontWeight="Bold" Background="OrangeRed" Foreground="White" BorderThickness="2" BorderBrush="DarkRed"/>
         </UniformGrid>
-        <TextBox Grid.Row="0" 
-                 Text="2+5-10=" 
+        
+        <TextBox Grid.Row="0"                  
                  Background="#FF224821" 
                  Foreground="#ff77ff77" 
-                 FontFamily="verdana" 
-                 FontSize="20" 
+                 FontFamily="/Calcuator;component/Views/Resources/#Digital-7 Mono" 
+                 FontSize="30" 
                  Margin="7,7,7,0" 
-                 BorderBrush="DarkGreen" 
-                 BorderThickness="3,3,2,0"
+                 HorizontalScrollBarVisibility="Hidden" 
+                 BorderThickness="0"
+                 Text="{Binding Path=DisplayExpression}" 
                  />
         <TextBox Grid.Row="1" 
-                 Text="-3" 
                  Background="#FF224821" 
                  Foreground="#ff77ff77" 
-                 FontFamily="Verdana" 
-                 FontSize="40" 
+                 FontFamily="/Calcuator;component/Views/Resources/#Digital-7 Mono"
+                 FontSize="50" 
                  Margin="7,0,7,3" 
-                 BorderBrush="DarkGreen" 
-                 BorderThickness="3,0,2,2"
-                 IsReadOnly="True"/>
+                  
+                 BorderThickness="0"
+                 IsReadOnly="True"
+                 Text="{Binding Path=DisplayResult}"   
+                 />
 
     </Grid>
 

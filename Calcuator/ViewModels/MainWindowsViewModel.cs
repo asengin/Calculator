@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calcuator.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -35,9 +36,9 @@ namespace Calcuator.ViewModels
         #endregion
 
         #region Свойство, отвечающее за взаимодействие с дисплеем результата
-        private double displayResult;
+        private string displayResult;
 
-        public double DisplayResult
+        public string DisplayResult
         {
             get { return displayResult; }
             set { displayResult = value; OnPropertyChanged(); }
@@ -47,16 +48,21 @@ namespace Calcuator.ViewModels
         public MainWindowsViewModel() //Конструктор с начальной инициализацией
         {
             displayExpression = string.Empty;
-            displayResult = 0;
+            displayResult = "0";
 
             PressCalcButton = new RelayCommand(OnPressCalcButtonExecute);
             PressOperationButton = new RelayCommand(OnPressOperationButon);
         }
 
-        #region Команда нажатия кнопки цифр
+        #region Команда нажатия кнопки цифр и операций
         public ICommand PressCalcButton { get; }
         private void OnPressCalcButtonExecute(object parameter)
         {
+            if (DisplayExpression.EndsWith("=")) //Если в дисплее варажения последний символ "=", значит результат переносим в выражение и обнуляем результат.
+            {
+                DisplayExpression = DisplayResult;
+                DisplayResult = "0";
+            }
             DisplayExpression += parameter.ToString();
             //DisplayResult = Convert.ToDouble(DisplayResult.ToString() + parameter.ToString()); //Выполнение конкатенации вводимых чисел, для отображения на дисплее ввода
         }
@@ -100,7 +106,39 @@ namespace Calcuator.ViewModels
             //    }
             //}
 
-            DisplayExpression += parameter.ToString();
+            //DisplayExpression += parameter.ToString();
+
+            switch (parameter)
+            {
+                case "negative":
+                    {
+                        break;
+                    }
+                case "back":
+                    {
+                        DisplayExpression = DisplayExpression.Length > 1 ? DisplayExpression.Remove(DisplayExpression.Length - 1) : string.Empty;
+                        break;
+                    }
+                case "C":
+                    {
+                        DisplayExpression = string.Empty;
+                        DisplayResult = "0";
+                        break;
+                    }
+                case "=":
+                    {
+                        if (string.IsNullOrEmpty(DisplayExpression)) //Проверяем есть ли выражение для вычисления
+                        {
+                            DisplayResult = "Нет выражения";
+                        }
+                        else
+                        {
+                            DisplayResult = Calculation.Result(DisplayExpression);
+                            DisplayExpression += parameter.ToString();
+                        }
+                        break;
+                    }
+            }
         }
         #endregion
     }

@@ -66,17 +66,18 @@
             <Button Command="{Binding Path=PressOperationButton}" CommandParameter="negative" Content="/-/" Style="{StaticResource ButtonParentStyle}"/>
             <Button Command="{Binding Path=PressOperationButton}" CommandParameter="=" Content="=" Style="{StaticResource ButtonResultStyle}"/>
             <Button Command="{Binding Path=PressOperationButton}" CommandParameter="back" Content="&#8592;" Style="{StaticResource ButtonResetStyle}"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="CE" Content="C" Style="{StaticResource ButtonResetStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="C" Content="C" Style="{StaticResource ButtonResetStyle}"/>
         </UniformGrid>
 
-        <TextBox Grid.Row="0"                  
+        <TextBox x:Name="txbDispExpression" 
+                 Grid.Row="0"                  
                  Background="#FF224821" 
                  Foreground="#ff77ff77" 
                  FontFamily="/Calcuator;component/Views/Resources/#Digital-7 Mono" 
                  FontSize="40" 
                  Margin="7,7,7,0" 
                  HorizontalScrollBarVisibility="Hidden"
-                 
+                 Padding="7,0,7,0" 
                  BorderThickness="0"
                  Text="{Binding Path=DisplayExpression}" 
                  />
@@ -86,12 +87,12 @@
                  FontFamily="/Calcuator;component/Views/Resources/#Digital-7 Mono"
                  FontSize="50" 
                  Margin="7,0,7,3" 
-                  
+                 Padding="7,0,7,0" 
                  BorderThickness="0"
                  IsReadOnly="True"
                  Text="{Binding Path=DisplayResult}"   
                  />
-
+        <Border Grid.RowSpan="2" Margin="7,7,7,3" BorderThickness="2" BorderBrush="DarkGray"/>
     </Grid>
 
 </Window>

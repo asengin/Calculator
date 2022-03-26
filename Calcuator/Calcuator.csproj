@@ -66,7 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\Calculate.cs" />
+    <Compile Include="Models\Calculation.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="ViewModels\MainWindowsViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">

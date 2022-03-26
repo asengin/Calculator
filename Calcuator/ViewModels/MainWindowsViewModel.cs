@@ -64,7 +64,6 @@ namespace Calcuator.ViewModels
                 DisplayResult = "0";
             }
             DisplayExpression += parameter.ToString();
-            //DisplayResult = Convert.ToDouble(DisplayResult.ToString() + parameter.ToString()); //Выполнение конкатенации вводимых чисел, для отображения на дисплее ввода
         }
         #endregion
 
@@ -72,42 +71,6 @@ namespace Calcuator.ViewModels
         public ICommand PressOperationButton { get; }
         private void OnPressOperationButon(object parameter)
         {
-            //string strP = parameter.ToString(); //Перевод параметра в строку
-            //if (strP == "-" || strP == "+" || strP == "*" || strP == "/" || strP == "^2" || strP == "(" || strP == ")")
-            //{
-            //    DisplayResult = 0;
-            //    DisplayExpression += strP;
-            //}
-            //else if (strP == "sqrt")
-            //{
-            //    DisplayResult = 0;
-            //    DisplayExpression += strP + "(";
-            //}
-            //else if (strP == "negative")
-            //{
-            //    DisplayResult *= -1;
-            //    DisplayExpression += DisplayResult.ToString(); //Доработать
-            //}
-            //else if (strP == "C")
-            //{
-            //    DisplayResult = 0;
-            //    DisplayExpression = string.Empty;
-            //}
-            //else if (strP == ".")
-            //{
-
-            //}
-            //else if (strP == "CE")
-            //{
-            //    if (DisplayResult != 0 && DisplayResult.ToString().Length != 1) //Доработать
-            //    {
-            //        DisplayResult = Convert.ToDouble(DisplayResult.ToString().Remove(DisplayResult.ToString().Length - 1, 1));
-            //        DisplayExpression = DisplayExpression.Remove(DisplayExpression.Length - 1, 1); //Доработать
-            //    }
-            //}
-
-            //DisplayExpression += parameter.ToString();
-
             switch (parameter)
             {
                 case "negative":

@@ -9,7 +9,8 @@
         Title="Калькулятор" 
         Height="450" 
         Width="400" 
-        ResizeMode="NoResize" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         AllowsTransparency="True" 
         WindowStyle="None" 
         Background="Transparent" >
@@ -17,21 +18,78 @@
         <vm:MainWindowsViewModel/>
     </Window.DataContext>
     <Window.Resources>
-        <Style x:Key="ButtonParentStyle">
-            <Setter Property="Button.Margin" Value="4"/>
-            <Setter Property="Button.FontFamily" Value="Verdana"/>
-            <Setter Property="Button.FontSize" Value="20"/>
-            <Setter Property="Button.FontWeight" Value="Bold"/>
-            <Setter Property="Button.BorderThickness" Value="2"/>
-            <Setter Property="Button.BorderBrush" Value="Black"/>
+        <!--Базовый стиль для кнопок-->
+        <Style x:Key="ButtonParentStyle" TargetType="Button">
+            <Style.Setters>
+                <Setter Property="Margin" Value="4"/>
+                <Setter Property="FontFamily" Value="Verdana"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush EndPoint="0.5,1"  StartPoint="0.5,0">
+                            <GradientStop Color="#FF282828" Offset="0.987"/>
+                            <GradientStop Color="#FFCDCDCD" Offset="0.495"/>
+                            <GradientStop Color="#FF5F5F5F" Offset="0.124"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <!--Изменение шаблона кнопки-->
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="rectangle" 
+                                    Background="{TemplateBinding Background}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    CornerRadius="10">
+                                </Border>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+            <!--Триггеры на наведение и нажатие кнопки-->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Margin" Value="3"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Margin" Value="6"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
-        <Style x:Key="ButtonResetStyle" BasedOn="{StaticResource ButtonParentStyle}">
-            <Setter Property="Button.Background" Value="OrangeRed"/>
-            <Setter Property="Button.Foreground" Value="White"/>
-            <Setter Property="Button.BorderBrush" Value="DarkRed"/>
+        <!--Стиль для кнопок сброса, наследуется от базового-->
+        <Style x:Key="ButtonResetStyle" BasedOn="{StaticResource ButtonParentStyle}" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1"  StartPoint="0.5,0">
+                        <GradientStop Color="#FFFF3232" Offset="0.987"/>
+                        <GradientStop Color="#FFE88787" Offset="0.495"/>
+                        <GradientStop Color="#FFFF3F3F" Offset="0.124"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderBrush" Value="DarkRed"/>
+
         </Style>
-        <Style x:Key="ButtonResultStyle" BasedOn="{StaticResource ButtonParentStyle}">
-            <Setter Property="Button.Background" Value="Azure"/>
+        <!--Стиль для кнопки "=", наследуется от базового-->
+        <Style x:Key="ButtonResultStyle" BasedOn="{StaticResource ButtonParentStyle}" TargetType="Button">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1"  StartPoint="0.5,0">
+                        <GradientStop Color="#FF8C8C8C" Offset="0.987"/>
+                        <GradientStop Color="White" Offset="0.492"/>
+                        <GradientStop Color="#FFB7B7B7" Offset="0.12"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
 
@@ -43,7 +101,7 @@
             </RowDefinition>
         </Grid.RowDefinitions>
         <UniformGrid Grid.Row="3" Rows="4" Columns="6" Margin="5,0,5,5">
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="7" Content="7" Style="{StaticResource ButtonParentStyle}" />
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="7" Content="7" Style="{StaticResource ButtonParentStyle}"/>
             <Button Command="{Binding Path=PressCalcButton}" CommandParameter="8" Content="8" Style="{StaticResource ButtonParentStyle}"/>
             <Button Command="{Binding Path=PressCalcButton}" CommandParameter="9" Content="9" Style="{StaticResource ButtonParentStyle}"/>
             <Button Command="{Binding Path=PressCalcButton}" CommandParameter="(" Content="(" Style="{StaticResource ButtonParentStyle}"/>
@@ -68,7 +126,7 @@
             <Button Command="{Binding Path=PressOperationButton}" CommandParameter="back" Content="&#8592;" Style="{StaticResource ButtonResetStyle}"/>
             <Button Command="{Binding Path=PressOperationButton}" CommandParameter="C" Content="C" Style="{StaticResource ButtonResetStyle}"/>
         </UniformGrid>
-
+        <!--текстбокс для ввода выражений-->
         <TextBox x:Name="txbDispExpression" 
                  Grid.Row="0"                  
                  Background="#FF224821" 
@@ -81,6 +139,7 @@
                  BorderThickness="0"
                  Text="{Binding Path=DisplayExpression}" 
                  />
+        <!--тексбокс для вывода результата-->
         <TextBox Grid.Row="1" 
                  Background="#FF224821" 
                  Foreground="#ff77ff77" 
@@ -92,7 +151,11 @@
                  IsReadOnly="True"
                  Text="{Binding Path=DisplayResult}"   
                  />
-        <Border Grid.RowSpan="2" Margin="7,7,7,3" BorderThickness="2" BorderBrush="DarkGray"/>
+        <Border Grid.RowSpan="2" 
+                Margin="7,7,7,3" 
+                BorderThickness="2" 
+                BorderBrush="DarkGray"
+                CornerRadius="5"/>
     </Grid>
 
 </Window>

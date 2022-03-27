@@ -25,32 +25,7 @@
             <RowDefinition Height="*">
             </RowDefinition>
         </Grid.RowDefinitions>
-        <UniformGrid Grid.Row="3" Rows="4" Columns="6" Margin="5,0,5,5">
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="7" Content="7" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="8" Content="8" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="9" Content="9" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="(" Content="(" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter=")" Content=")" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="sqrt(" Content="&#8730;" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="4" Content="4" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="5" Content="5" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="6" Content="6" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="*" Content="x" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="/" Content="&#247;" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="^2" Content="X&#178;" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="1" Content="1" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="2" Content="2" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="3" Content="3" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="+" Content="+" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="-" Content="-" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="pi" Content="Pi" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="0" Content="0" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="." Content="." Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="negative" Content="/-/" Style="{StaticResource ButtonParentStyle}"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="=" Content="=" Style="{StaticResource ButtonResultStyle}"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="back" Content="&#8592;" Style="{StaticResource ButtonResetStyle}"/>
-            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="C" Content="C" Style="{StaticResource ButtonResetStyle}"/>
-        </UniformGrid>
+        
         <!--текстбокс для ввода выражений-->
         <TextBox x:Name="txbDispExpression" 
                  Grid.Row="0"                  
@@ -81,6 +56,33 @@
                 BorderThickness="2" 
                 BorderBrush="DarkGray"
                 CornerRadius="5"/>
+        <!--кнопки-->
+        <UniformGrid Grid.Row="3" Rows="4" Columns="6" Margin="5,0,5,5">
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="7" Content="7" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="8" Content="8" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="9" Content="9" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="(" Content="(" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter=")" Content=")" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="sqrt(" Content="&#8730;" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="4" Content="4" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="5" Content="5" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="6" Content="6" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="*" Content="x" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="/" Content="&#247;" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="^2" Content="X&#178;" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="1" Content="1" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="2" Content="2" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="3" Content="3" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="+" Content="+" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="-" Content="-" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="pi" Content="Pi" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="0" Content="0" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressCalcButton}" CommandParameter="." Content="." Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="negative" Content="/-/" Style="{StaticResource ButtonParentStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="=" Content="=" Style="{StaticResource ButtonResultStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="back" Content="&#8592;" Style="{StaticResource ButtonResetStyle}"/>
+            <Button Command="{Binding Path=PressOperationButton}" CommandParameter="C" Content="C" Style="{StaticResource ButtonResetStyle}"/>
+        </UniformGrid>
     </Grid>
 
 </Window>

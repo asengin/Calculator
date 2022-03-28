@@ -19,7 +19,7 @@
     </Window.DataContext>
 
     <Border BorderThickness="4" BorderBrush="#FF575757"  CornerRadius="5">
-        <Grid Background="#ff404040" Opacity="0.85">
+        <Grid Background="#ff404040" Opacity="0.85" FocusManager.FocusedElement="{Binding ElementName=txbDispExpression}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.12*"/>
                 <RowDefinition Height="0.15*"/>

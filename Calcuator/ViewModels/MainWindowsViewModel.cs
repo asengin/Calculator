@@ -76,6 +76,7 @@ namespace Calcuator.ViewModels
                 DisplayResult = "0";
             }
             DisplayExpression += parameter.ToString();
+            
         }
         #endregion
 

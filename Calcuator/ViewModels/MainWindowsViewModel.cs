@@ -21,7 +21,7 @@ namespace Calcuator.ViewModels
         }
         #endregion
 
-        #region Свойство отвечающее за взаимодействие с дисплеем с формулой
+        #region Свойство отвечающее за взаимодействие с дисплеем с выражением
         private string displayExpression;
 
         public string DisplayExpression
@@ -45,10 +45,22 @@ namespace Calcuator.ViewModels
         }
         #endregion
 
+        #region Свойство, отвечающее за взаимодействие с историей вычислений
+        private string historyResult;
+
+        public string HistoryResult
+        {
+            get { return historyResult; }
+            set { historyResult = value; OnPropertyChanged(); }
+        }
+
+        #endregion
+
         public MainWindowsViewModel() //Конструктор с начальной инициализацией
         {
             displayExpression = string.Empty;
             displayResult = "0";
+            historyResult = string.Empty;
 
             PressCalcButton = new RelayCommand(OnPressCalcButtonExecute);
             PressOperationButton = new RelayCommand(OnPressOperationButon);
@@ -98,6 +110,7 @@ namespace Calcuator.ViewModels
                         {
                             DisplayResult = Calculation.Result(DisplayExpression);
                             DisplayExpression += parameter.ToString();
+                            HistoryResult+=(DisplayExpression + DisplayResult+"\n");
                         }
                         break;
                     }

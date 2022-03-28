@@ -44,6 +44,7 @@
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Margin" Value="6"/>
+                <Setter Property="FontSize" Value="17"/>
             </Trigger>
         </Style.Triggers>
     </Style>
